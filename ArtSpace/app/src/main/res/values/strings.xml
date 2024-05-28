@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Art Space</string>
+    <string name="image_title_1">Wattle On A Montaigne</string>
+    <string name="image_title_2">Oil on canvas</string>
+    <string name="image_title_3">Unknown</string>
+    <string name="artist_1">Scott Owen</string>
+    <string name="artist_2">Scott Owen</string>
+    <string name="artist_3">Scott Owen</string>
+    <string name="year_1">2020</string>
+    <string name="year_2">2019</string>
+    <string name="year_3">Unknown</string>
+    <string name="previous_button">Previous</string>
+    <string name="next_button">Next</string>
+</resources>
