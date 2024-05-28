@@ -52,7 +52,7 @@ val titleResources = listOf(R.string.image_title_1, R.string.image_title_2, R.st
 val artistResources = listOf(R.string.artist_1, R.string.artist_2, R.string.artist_3)
 val yearResources = listOf(R.string.year_1, R.string.year_2, R.string.year_3)
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = "spec:width=1280dp,height=800dp,dpi=240")
 @Composable
 fun DefaultPreview() {
     ArtSpaceTheme {
@@ -70,17 +70,16 @@ fun ArtSpaceLayout() {
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Artwork Wall
+
         ArtworkImage(currentIndex)
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Artwork Descriptor
         ArtworkInfo(currentIndex)
 
         Spacer(modifier = Modifier.weight(1f))
 
-        // Display Controller
+
         NavigationButtons(
             onPreviousClick = {
                 currentIndex = if (currentIndex == 0) imageResources.size - 1 else currentIndex - 1
@@ -97,17 +96,17 @@ fun ArtworkImage(currentIndex: Int) {
     Box(
         modifier = Modifier
             .padding(16.dp)
-            .shadow(8.dp) // Add shadow for elevation
-            .background(Color.White) // White background for the frame
-            .padding(16.dp) // Increased padding for a bigger frame
-            .border(4.dp, Color.LightGray) // Light gray border around the frame, increased width
+            .shadow(8.dp)
+            .background(Color.White)
+            .padding(16.dp)
+            .border(4.dp, Color.LightGray)
     ) {
         Image(
             painter = painterResource(id = imageResources[currentIndex]),
             contentDescription = stringResource(id = titleResources[currentIndex]),
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(1f), // Ensure the image maintains a consistent aspect ratio
+                .aspectRatio(1f),
             contentScale = ContentScale.Crop
         )
     }
@@ -119,8 +118,8 @@ fun ArtworkInfo(currentIndex: Int) {
         modifier = Modifier
             .fillMaxWidth()
             .border(1.dp, Color.Gray)
-            .padding(8.dp), // Add padding to prevent clipping
-        color = Color(0xFFBBDEFB) // Light blue background
+            .padding(8.dp),
+        color = Color(0xFFBBDEFB)
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
@@ -132,7 +131,7 @@ fun ArtworkInfo(currentIndex: Int) {
                         append(stringResource(id = titleResources[currentIndex]))
                     }
                 },
-                fontSize = 28.sp, // Increased font size
+                fontSize = 28.sp,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -148,7 +147,7 @@ fun ArtworkInfo(currentIndex: Int) {
                     }
                     append(")")
                 },
-                fontSize = 20.sp, // Increased font size
+                fontSize = 20.sp,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.secondary
             )
