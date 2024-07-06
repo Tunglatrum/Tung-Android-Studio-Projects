@@ -1,5 +1,3 @@
-Sure, here's a similar structured summary for Units 3 to 8 of the Android Basics with Compose course:
-
 ---
 
 ### ✅ Unit 1: Your first Android app
