@@ -10,7 +10,7 @@
 - **Add a button to an app** ✅
 - **Interact with UI and state** ✅
 
-### Unit 3: Display lists and use Material Design (Due date:10/5/2024)
+### Unit 3: Display lists and use Material Design (Due date:12/5/2024)
 3 pathways | Duration: 15 hours
 - **Introduction to displaying lists** 📍
 - **Implementing RecyclerView with Compose**
