@@ -19,7 +19,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
@@ -52,7 +51,7 @@ val titleResources = listOf(R.string.image_title_1, R.string.image_title_2, R.st
 val artistResources = listOf(R.string.artist_1, R.string.artist_2, R.string.artist_3)
 val yearResources = listOf(R.string.year_1, R.string.year_2, R.string.year_3)
 
-@Preview(showBackground = true, device = "spec:width=1280dp,height=800dp,dpi=240")
+@Preview(showBackground = true,device="spec:width=1280dp,height=800dp,dpi=240")
 @Composable
 fun DefaultPreview() {
     ArtSpaceTheme {
@@ -67,7 +66,7 @@ fun ArtSpaceLayout() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -93,21 +92,24 @@ fun ArtSpaceLayout() {
 
 @Composable
 fun ArtworkImage(currentIndex: Int) {
-    Box(
+    BoxWithConstraints(
         modifier = Modifier
             .padding(16.dp)
-            .shadow(8.dp)
+            .shadow(8.dp )
             .background(Color.White)
-            .padding(16.dp)
             .border(4.dp, Color.LightGray)
+            .padding(16.dp)
     ) {
+        val maxHeight = maxHeight
+        val maxWidth = maxWidth
         Image(
-            painter = painterResource(id = imageResources[currentIndex]),
+            painter = painterResource(id =  imageResources[currentIndex]),
             contentDescription = stringResource(id = titleResources[currentIndex]),
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(1f),
-            contentScale = ContentScale.Crop
+                .heightIn(max = maxHeight)
+                .widthIn(max = maxWidth),
+            contentScale = ContentScale.Fit
         )
     }
 }
