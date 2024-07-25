@@ -137,14 +137,15 @@ fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun TopicPreview() {
-    CoursesAppTheme {
-        val topic = Topic(R.string.photography, 321, R.drawable.architecture)
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            TopicCard(topic = topic)
-        }
+    CoursesAppTheme(darkTheme = true) {
+        TopicGrid()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TopicDarkThemePreview() {
+    CoursesAppTheme(darkTheme = false) {
+        TopicGrid()
     }
 }
